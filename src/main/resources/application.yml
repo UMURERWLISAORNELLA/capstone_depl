@@ -1,0 +1,25 @@
+server:
+  # Port on which the application listens
+  port: ${PORT:8080}
+
+spring:
+  datasource:
+    # Connection details for the PostgreSQL database.  Replace these values
+    # with your actual database credentials.
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      # Automatically create/update tables based on entities
+      ddl-auto: update
+    show-sql: true
+    open-in-view: false
+
+# JWT configuration values
+jwt:
+  # Base64 encoded secret used to sign tokens (32+ bytes recommended)
+  secret: ${JWT_SECRET}
+  # Token expiration time in milliseconds (24 hours)
+  expiration-ms: 86400000
